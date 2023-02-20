@@ -11,7 +11,7 @@ az feature register --namespace "Microsoft.ContainerService" --name "AzureOverla
 az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
 # Wait until "Registered"
 az provider register --namespace Microsoft.ContainerService
-``
+```
 
 ```sh
 clusterName="aks-cni-overlay"
