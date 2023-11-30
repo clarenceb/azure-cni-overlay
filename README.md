@@ -1,18 +1,6 @@
 Azure CNI Overlay demo
 ======================
 
-During preview:
-
-```sh
-az extensions install --name aks-preview
-az extensions update --name aks-preview
-
-az feature register --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
-az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
-# Wait until "Registered"
-az provider register --namespace Microsoft.ContainerService
-```
-
 ```sh
 clusterName="aks-cni-overlay"
 resourceGroup="aks-demos"
@@ -57,7 +45,7 @@ Create the cluster with the iniital node pool using subnet 1 and the shared pod 
 
 ```sh
 subscription=$(az account show --query id -o tsv)
-aksVersion=$(az aks get-versions -l $location --query orchestrators[*].orchestratorVersion -o tsv | sort -nr | head -n1)
+aksVersion=1.27.7
 
 az aks create -n $clusterName -g $resourceGroup -l $location \
     --max-pods 250 \
